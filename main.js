@@ -20,7 +20,7 @@ function showRules(){
   $("rules").innerHTML = "";
   language.rules.forEach((x, i)=>{
     let li = $("rules").appendChild(document.createElement("li"));
-    li.appendChild(document.createTextNode(x.name));
+    li.appendChild(document.createTextNode(x.type));
     li.appendChild(document.createTextNode("="));
     for(let j=0; j<x.seq.length; j++) {
       if(j!=0) {
@@ -39,7 +39,7 @@ function showRules(){
   });
 }
 
-function showResult(tree){
+function showExample(tree){
   if(tree.rule==-1) {
     $("result").appendChild(document.createTextNode(tree.literal));
     return;
@@ -52,7 +52,7 @@ function showResult(tree){
 function update(){
   showRules();
   $("result").innerHTML = "";
-  showResult(language.examples[0]);
+  showExample(language.examples[0]);
 }
 
 window.onload=()=>{

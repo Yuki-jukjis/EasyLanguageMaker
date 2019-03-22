@@ -2,9 +2,9 @@ var languages=[
   {
     name:"Japanese",
     rules:[
-      {name:"副詞句", seq:["名詞", "格助詞"]},
-      {name:"述語句", seq:["述語"]},
-      {name:"述語句", seq:["副詞句","述語句"]}
+      {type:"副詞句", seq:["名詞", "格助詞"]},
+      {type:"述語句", seq:["述語"]},
+      {type:"述語句", seq:["副詞句","述語句"]}
     ],
     examples:[
       {rule:2, type:"述語句", children:[
