@@ -45,7 +45,7 @@ function showExample(tree){
     return;
   }
   shuffle[tree.rule].forEach(x=>{
-    showResult(tree.children[x]);
+    showExample(tree.children[x]);
   });
 }
 
