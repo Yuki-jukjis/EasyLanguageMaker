@@ -7,7 +7,7 @@ var languages=[
       {type:"述語句", seq:["副詞句","述語句"]}
     ],
     examples:[
-      {rule:2, type:"述語句", children:[
+      {name:"リンゴ", rule:2, type:"述語句", children:[
         {rule:0, type:"副詞句", children:[
           {rule:-1, type:"名詞", literal:"私"},
           {rule:-1, type:"格助詞", literal:"は"}
@@ -21,7 +21,10 @@ var languages=[
             {rule:-1, type:"述語", literal:"食べます"}
           ]}
         ]}
-      ]}
+      ]},
+      { name:"fizz" }
     ]
-  }
+  },
+  {name:"foo", rules:[], examples:[]},
+  {name:"bar", rules:[], examples:[]},
 ];

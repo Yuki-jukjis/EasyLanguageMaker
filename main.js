@@ -4,7 +4,7 @@ var shuffle;
 function $(id){return document.getElementById(id);}
 
 function init(){
-  language = languages[0];
+  language = languages[$("languageSelect").value];
   shuffle = [];
 
   for(var i=0; i<language.rules.length; i++) {
@@ -12,6 +12,13 @@ function init(){
     for(var j=0; j<language.rules[i].seq.length; j++)
       shuffle[i][j]=j;
   }
+
+  language.examples.forEach((x, i)=>{
+    var o = $("exampleSelect").appendChild(document.createElement("option"));
+    o.innerText = x.name;
+    o.value = i;
+  });
+  $("exampleSelect").onchange=()=>update();
 
   update();
 }
@@ -52,9 +59,15 @@ function showExample(tree){
 function update(){
   showRules();
   $("result").innerHTML = "";
-  showExample(language.examples[0]);
+  showExample(language.examples[$("exampleSelect").value]);
 }
 
 window.onload=()=>{
-  init()
+  languages.forEach((x, i)=>{
+    var o = $("languageSelect").appendChild(document.createElement("option"));
+    o.innerText = x.name;
+    o.value = i;
+  });
+  $("languageSelect").onchange=()=>init();
+  init();
 };
