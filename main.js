@@ -56,6 +56,25 @@ function showExample(tree){
   });
 }
 
+function checkExample(tree, rules){
+  if(tree.rule==-1)
+    return "";
+
+  if(tree.type != rules[tree.rule].type)
+    return "incorrect parent type";
+  if(tree.children.length != rules[tree.rule].seq.length)
+    return "incorrect seq length";
+
+  for(var i=0; i<tree.children.length; i++) {
+    if(tree.children[i].type != rules[tree.rule].seq[i])
+      return "incorrect children type";
+
+    if(res = checkExample(tree.children[i], rules))
+      return res + " at " + i;
+  }
+  return "";
+}
+
 function update(){
   showRules();
   $("result").innerHTML = "";
